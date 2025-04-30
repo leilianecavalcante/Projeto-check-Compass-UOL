@@ -1,4 +1,4 @@
-<h1>📊 Monitoramento de Site com Webhook 🚀</h1>
+<h1>📊 Monitoramento de um servidor web com Nginx e Webhook 🚀</h1>
 
 <p>Este projeto tem como objetivo monitorar se um site está no ar e, caso não esteja, enviar uma mensagem de alerta para o <strong>Discord</strong>, <strong>Slack</strong> ou <strong>Telegram</strong> usando Webhooks. O monitoramento é feito a cada 1 minuto.</p>
 
@@ -19,6 +19,9 @@
     <li><strong>Instalar o Ubuntu pela Microsoft Store</strong>:
         <p>Abra a Microsoft Store, busque por "Ubuntu" e instale a versão desejada.</p>
     </li>
+</ol>
+#imagem 1 aqui
+<ol>
     <li><strong>Instalar o WSL (Windows Subsystem for Linux)</strong>:
         <pre>wsl --install -d Ubuntu</pre>
     </li>
@@ -87,6 +90,8 @@ echo "$mensagem" | tee -a "$log"
         <pre>cat /var/log/monitoramento.log</pre>
     </li>
 </ol>
+
+## imagem 4.1
 
 <h2>⚡ Etapa 4 - Testar o Webhook</h2>
 <ol>
