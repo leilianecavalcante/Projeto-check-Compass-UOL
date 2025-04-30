@@ -125,7 +125,7 @@ echo "$mensagem" | tee -a "$log"
 
 <h2>⚡ Etapa 4 - Testar o Webhook</h2>
 <ol>
-    <li><strong>Criar Webhook no Discord</strong>: Vá para Configurações do Servidor > Integrações > Webhooks e crie um Webhook.</li>
+    <li><strong>Criar Webhook no Discord</strong>: Vá para Configurações do Servidor > Crie um Servidor > Integrações > Webhooks e crie um Webhook.</li>
 </ol>
  <img src="assets/imagem 4.png">
 <ol>    
