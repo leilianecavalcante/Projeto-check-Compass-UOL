@@ -35,11 +35,86 @@
     </li>
    <li><strong>Após instalar o Nginx</strong>
       <p>Execute o comando <pre>systemctl status nginx</pre> em seu terminal e deve aparecer a seguinte mensagem</p>
-      ![image](https://github.com/user-attachments/assets/353a3442-111d-426e-85ca-1fc57adebecb)
-
+     ## imagem 2 aqui
     </li>
     <li><strong>Iniciar o Nginx</strong>:
         <pre>sudo systemctl start nginx</pre>
     </li>
     <li><strong>Verificar se o Nginx está funcionando</strong>: Acesse <a href="http://localhost">http://localhost</a> ou o IP da máquina.</li>
 </ol>
+
+<h2>🌐 Etapa 2.5 - Montar um Site</h2>
+<ol>
+    <li><strong>Criar o arquivo index.html</strong> no diretório <pre>/var/www/html/</pre></li>
+    <p>Encontrará um arquivo chamado index.html</p>
+</ol>    
+## imagem 3 aqui
+
+<h2>🕵️‍♂️ Etapa 3 - Script de Verificação</h2>
+<ol>
+    <li><strong>Criar o script monitoramento.sh</strong>:
+        <pre>nano /home/usuario/monitoramento.sh</pre>
+    </li>
+    <li><strong>Exemplo de script</strong>:
+        <pre>
+#!/bin/bash
+
+discordkey="SEU-WEBHOOK-URL"
+log="/var/log/monitoramento.log"
+data=$(date "+%d-%m %H:%M:%S")
+
+if systemctl is-active nginx; then
+    mensagem="$data : Site está no ar"
+else
+    mensagem="$data : Site está fora do ar"
+    curl -H "Content-Type: application/json" -X POST -d "{\"content\":\"$mensagem\"}" "$discordkey"
+fi
+
+echo "$mensagem" | tee -a "$log"
+        </pre>
+    </li>
+  </pre>
+    </li>
+    <li><strong>Tornar o script executável</strong>:
+        <pre>chmod +x /home/usuario/monitoramento.sh</pre>
+    </li>
+</ol>
+
+<h2>📜 Etapa 3.5 - Log com Informações de Status</h2>
+<ol>
+    <li><strong>Configurar o Log</strong> para gravar a data, hora e status (se está no ar ou não). O log será salvo em /var/log/monitoramento.log.</li>
+    <li><strong>Visualizar o log</strong>:
+        <pre>cat /var/log/monitoramento.log</pre>
+    </li>
+</ol>
+
+<h2>⚡ Etapa 4 - Testar o Webhook</h2>
+<ol>
+    <li><strong>Criar Webhook no Discord</strong>: Vá para Configurações do Servidor > Integrações > Webhooks e crie um Webhook.</li>
+</ol>
+    ## imagem 4 aqui
+<ol>    
+    <li><strong>Testar o Webhook</strong>:
+        <pre>/home/usuario/monitoramento.sh</pre>
+        <p>Verifique se a mensagem de alerta chega no Discord.</p>
+    </li>
+</ol>
+## imagem 5 aqui
+
+<h2>🕐 Etapa 5 - Agendar a Execução do Script a Cada 1 Minuto</h2>
+<ol>
+    <li><strong>Abrir o cron para editar</strong>:
+        <pre>crontab -e</pre>
+    </li>
+    <li><strong>Adicionar a linha para rodar o script a cada 1 minuto</strong>:
+        <pre>* * * * * /home/usuario/monitoramento.sh</pre>
+    </li>
+    <li><strong>Salvar e sair</strong> (pressione Ctrl + O, depois Enter, e Ctrl + X).</li>
+</ol>
+
+<h2>🎉 Pronto! Agora seu site está sendo monitorado automaticamente!</h2>
+<p>A cada 1 minuto, o script verifica se o site está no ar e envia alertas via Webhook quando necessário.</p>
+
+<h2>📄 Licença</h2>
+
+<p>Este projeto está licenciado sob os termos da <strong>MIT License</strong>.</p>
