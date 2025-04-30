@@ -20,7 +20,7 @@
         <p>Abra a Microsoft Store, busque por "Ubuntu" e instale a versão desejada.</p>
     </li>
 </ol>
-#imagem 1 aqui
+<img src="assets/um.png">
 <ol>
     <li><strong>Instalar o WSL (Windows Subsystem for Linux)</strong>:
         <pre>wsl --install -d Ubuntu</pre>
@@ -38,7 +38,7 @@
     </li>
    <li><strong>Após instalar o Nginx</strong>
       <p>Execute o comando <pre>systemctl status nginx</pre> em seu terminal e deve aparecer a seguinte mensagem</p>
-     ## imagem 2 aqui
+     <img src="assets/dois.png">
     </li>
     <li><strong>Iniciar o Nginx</strong>:
         <pre>sudo systemctl start nginx</pre>
@@ -51,7 +51,9 @@
     <li><strong>Criar o arquivo index.html</strong> no diretório <pre>/var/www/html/</pre></li>
     <p>Encontrará um arquivo chamado index.html</p>
 </ol>    
-## imagem 3 aqui
+
+<img src="assets/tres.png">
+
 
 <h2>🕵️‍♂️ Etapa 3 - Script de Verificação</h2>
 <ol>
@@ -116,20 +118,21 @@ echo "$mensagem" | tee -a "$log"
     </li>
 </ol>
 
-## imagem 4.1
+   <img src="assets/quatro.png">
+
 
 <h2>⚡ Etapa 4 - Testar o Webhook</h2>
 <ol>
     <li><strong>Criar Webhook no Discord</strong>: Vá para Configurações do Servidor > Integrações > Webhooks e crie um Webhook.</li>
 </ol>
-    ## imagem 4 aqui
+ <img src="assets/imagem 4.png">
 <ol>    
     <li><strong>Testar o Webhook</strong>:
         <pre>/home/usuario/monitoramento.sh</pre>
         <p>Verifique se a mensagem de alerta chega no Discord.</p>
     </li>
 </ol>
-## imagem 5 aqui
+ <img src="assets/cinco.png">
 
 <h2>🕐 Etapa 5 - Agendar a Execução do Script a Cada 1 Minuto</h2>
 <ol>
