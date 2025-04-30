@@ -83,6 +83,31 @@ echo "$mensagem" | tee -a "$log"
     </li>
 </ol>
 
+<h2>🧠 O que cada parte faz:</h2>
+<ul>
+  <li><code>#!/bin/bash</code> — Define que o script será interpretado pelo Bash (linguagem de terminal).</li>
+
+  <li><code>discordkey="SEU-WEBHOOK-URL"</code> — Aqui você define a URL do webhook do Discord para onde será enviada a mensagem de alerta.</li>
+
+  <li><code>log="/var/log/monitoramento.log"</code> — Define o local onde será salvo o log com as mensagens do monitoramento.</li>
+
+  <li><code>data=$(date "+%d-%m %H:%M:%S")</code> — Cria uma variável com a data e hora atuais no formato: dia-mês hora:minuto:segundo.</li>
+
+  <li><code>if systemctl is-active nginx; then</code> — Verifica se o serviço do Nginx está ativo (ou seja, se o site está no ar).</li>
+
+  <li><code>mensagem="$data : Site está no ar"</code> — Se o Nginx estiver ativo, a mensagem vai indicar que o site está no ar.</li>
+
+  <li><code>else</code> — Se o Nginx <strong>não</strong> estiver ativo:</li>
+  <ul>
+    <li><code>mensagem="$data : Site está fora do ar"</code> — A mensagem indicará que o site está fora do ar.</li>
+    <li><code>curl ...</code> — Envia essa mensagem para o canal do Discord via webhook, no formato JSON.</li>
+  </ul>
+
+  <li><code>echo "$mensagem" | tee -a "$log"</code> — Exibe a mensagem no terminal <strong>e</strong> salva no arquivo de log (sem apagar o conteúdo anterior).</li>
+</ul>
+
+
+
 <h2>📜 Etapa 3.5 - Log com Informações de Status</h2>
 <ol>
     <li><strong>Configurar o Log</strong> para gravar a data, hora e status (se está no ar ou não). O log será salvo em /var/log/monitoramento.log.</li>
