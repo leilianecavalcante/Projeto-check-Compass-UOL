@@ -114,7 +114,7 @@ echo "$mensagem" | tee -a "$log"
 
 <h2>📜 Etapa 3.5 - Log com Informações de Status</h2>
 <ol>
-    <li><strong>Configurar o Log</strong> para gravar a data, hora e status (se está no ar ou não). O log será salvo em /var/log/monitoramento.log.</li>
+    <li><strong>Configurar o Log</strong> para gravar a data, hora e status (se está no ar ou não). O log será salvo em <pre>/var/log/monitoramento.log.</pre></li>
     <li><strong>Visualizar o log em tempo real</strong>:
         <pre>tail -f /var/log/verifica.log</pre>
     </li>
