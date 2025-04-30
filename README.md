@@ -144,7 +144,7 @@ echo "$mensagem" | tee -a "$log"
     <li><strong>Adicionar a linha para rodar o script a cada 1 minuto</strong>:
         <pre>* * * * * /home/usuario/monitoramento.sh</pre>
     </li>
-    <li><strong>Salvar e sair</strong> (pressione Ctrl + O, depois Enter, e Ctrl + X).</li>
+    <li><strong>Salvar e sair</strong> (pressione Ctrl + O para Salvar, depois Enter, e Ctrl + X para Sair).</li>
 </ol>
 
 <h2>🎉 Pronto! Agora seu site está sendo monitorado automaticamente!</h2>
